@@ -6,7 +6,11 @@ import { cartAction } from "../../store/card-slice";
 const ProductItem = (props) => {
   const { title, price, description, id } = props;
   const dispatch = useDispatch();
+
   const addToCartHandler = () => {
+    // and then send Http request
+    // fetch('firebase-url', { method: 'POST', body: JSON.stringify(newCart) })
+
     dispatch(
       cartAction.addItemToCart({
         id,
@@ -15,6 +19,7 @@ const ProductItem = (props) => {
       })
     );
   };
+  
   return (
     <li className={classes.item}>
       <Card>
